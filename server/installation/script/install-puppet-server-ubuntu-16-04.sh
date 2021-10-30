@@ -10,6 +10,7 @@ echo "OLD_HOST_NAME: $OLD_HOST_NAME"
 echo "HOST_NAME: $HOST_NAME"
 echo "Host name will be changed from $OLD_HOST_NAME to $HOST_NAME"
 echo "-------------------------------------------------------------"
+
 # Set Timezone
 sudo timedatectl set-timezone $TIME_ZONE
 
@@ -27,3 +28,9 @@ sudo service chrony start
 sudo service chrony status
 sleep 5
 chronyc tracking
+
+# Install Puppet Server
+curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
+sudo dpkg -i puppetlabs-release-pc1-xenial.deb
+sudo apt-get update
+sudo apt-get install -y puppetserver --allow-unauthenticated
