@@ -34,3 +34,9 @@ curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 sudo dpkg -i puppetlabs-release-pc1-xenial.deb
 sudo apt-get update
 sudo apt-get install -y puppetserver --allow-unauthenticated
+
+# Open port for Puppet
+sudo ufw allow 8140
+
+# Start Puppet Server
+sudo service puppetserver start
