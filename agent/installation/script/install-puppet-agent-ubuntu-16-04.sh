@@ -31,7 +31,7 @@ sudo service chrony status
 sleep 5
 chronyc tracking
 
-# Install Puppet Server
+# Install Puppet Agent
 curl -O https://apt.puppetlabs.com/puppetlabs-release-pc1-xenial.deb
 sudo dpkg -i puppetlabs-release-pc1-xenial.deb
 sudo apt-get update
