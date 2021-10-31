@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 TIME_ZONE=Asia/Taipei
-HOST_NAME=Puppet-Agent-Machine1
+HOST_NAME=puppet-agent-machine-bazooka
 OLD_HOST_NAME=$(hostname)
 PUPPET_MASTER_IP=10.1.1.2
 
@@ -41,8 +41,12 @@ sudo dpkg -i puppetlabs-release-pc1-xenial.deb
 sudo apt-get update
 sudo apt-get install -y puppet-agent --allow-unauthenticated
 
+sudo ufw allow 8140
 sudo service puppet stop
 sudo service puppet start
+
+echo ">> Run sudo /opt/puppetlabs/puppet/bin/puppet agent -t"
+sudo /opt/puppetlabs/puppet/bin/puppet agent -t
 
 echo "=============== Puppet Agent Installed Successfully! ============="
 
